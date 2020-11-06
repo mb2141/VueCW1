@@ -1,0 +1,68 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vue"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/5.15.1/css/all.min.css">
+
+        <!---------------------- Style CSS ------------------------->
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+        <title>After School club app</title>
+    </head>
+
+    <body>
+
+        <div id="app">
+
+            <h1 v-text='webname'></h1>
+
+            <div v-if='ShowSubject'>
+                <div v-for='a in subject'>
+                    <div id="image">
+                        {{a.image}}
+                    </div>
+
+                    <div id="name">
+                        {{a.name}}
+                    </div>
+
+                    <div id="location">
+                        {{a.location}}
+                    </div>
+
+                    <div id="price">
+                        £{{a.price}}
+                    </div>
+
+                    <div id="space">
+                        {{a.space}}
+                    </div>
+
+                    <button @click='addToCart' v-if='CanAddToCart'>Add to Cart</button>
+                    <button disabled='disabled' v-else>Add to Cart</button>
+
+                    <br>
+                    <!---------Space--------->
+                    <br>
+                    <!--------Between-------->
+                </div>
+            </div>
+            <div v-else></div>
+
+
+            <br>
+            <!----Space between----->
+
+            <button @click='ShowBasket'>{{CartItemCount}} Basket</button>  <!----Basket button----->
+
+
+        </div>
+        </div>
+
+        <script src="lesson.js"></script>
+    </body>
+
+    </html>
