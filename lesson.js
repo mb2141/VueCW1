@@ -38,7 +38,7 @@ var app = new Vue({
         },
 
         alert() {
-            alert("Order Completed "+name);
+            alert("Order Completed");
         }
     },
 
