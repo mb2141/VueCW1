@@ -55,7 +55,10 @@
             <button @click='ShowBasket'>{{CartItemCount}} Basket</button>
 
             <!----The else statement that enables the basket button to change the pages of the web app----->
-            <div v-else></div>
+            <div v-else>
+                <h2>Basket</h2>
+                <input {{Order.name}}>
+            </div>
 
 
 
