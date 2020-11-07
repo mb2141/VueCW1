@@ -23,6 +23,10 @@ var app = new Vue({
         ],
         cart: [],
         ShowSubject: true,
+        Order: {
+            Name:'',
+            Phone: 0,
+        }
     },
 
     methods: {
