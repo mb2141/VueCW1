@@ -49,15 +49,24 @@
                     <br>
                     <!--------Between-------->
                 </div>
+                
+                <!----Basket button----->
+                <button @click='ShowBasket'>{{CartItemCount}} Basket</button>
+
             </div>
 
-            <!----Basket button----->
-            <button @click='ShowBasket'>{{CartItemCount}} Basket</button>
 
             <!----The else statement that enables the basket button to change the pages of the web app----->
             <div v-else>
                 <h2>Basket</h2>
-                <input v-model='Order.name'>
+
+                <form>
+                    <label for="fname">First name:</label>
+                    <input type="text" id="fname" name="fname"><br><br>
+                    <label for="lname">Last name:</label>
+                    <input type="text" id="lname" name="lname"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
             </div>
 
         </div>
