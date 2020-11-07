@@ -24,8 +24,8 @@ var app = new Vue({
         cart: [],
         ShowSubject: true,
         Order: {
-            Name:'',
-            Phone: 0,
+            name:'',
+            phone: 0,
         }
     },
 
