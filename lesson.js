@@ -24,7 +24,7 @@ var app = new Vue({
         cart: [],
         ShowSubject: true,
         Order: {
-            name:'',
+            name: '',
             phone: '',
         }
     },
@@ -33,8 +33,12 @@ var app = new Vue({
         addToCart: function () {
             this.cart.push(this.subject.id)
         },
-        ShowBasket(){
+        ShowBasket() {
             this.ShowSubject = this.ShowSubject ? false : true;
+        },
+
+        alert() {
+            alert("Order Completed "+name);
         }
     },
 
@@ -44,7 +48,7 @@ var app = new Vue({
         },
         CanAddToCart: function () {
             return this.subject[0].space > this.CartItemCount;
-            
-        }
+        },
     }
+
 })
