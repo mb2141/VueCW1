@@ -49,7 +49,7 @@
                     <br>
                     <!--------Between-------->
                 </div>
-                
+
                 <!----Basket button----->
                 <button @click='ShowBasket'>{{CartItemCount}} Basket</button>
 
@@ -61,12 +61,13 @@
                 <h2>Basket</h2>
 
                 <form>
-                    <label for="fname">First name:</label>
-                    <input type="text" id="fname" name="fname"><br><br>
-                    <label for="lname">Last name:</label>
-                    <input type="text" id="lname" name="lname"><br><br>
+                    <label>Name:</label>
+                    <input v-model = 'Order.name'><br><br>
+                    <label>Phone:</label>
+                    <input v-model = 'Order.phone'><br><br>
                     <input type="submit" value="Submit">
                 </form>
+
             </div>
 
         </div>
