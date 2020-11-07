@@ -25,7 +25,7 @@ var app = new Vue({
         ShowSubject: true,
         Order: {
             name:'',
-            phone: 0,
+            phone: '',
         }
     },
 
