@@ -5,7 +5,7 @@ var app = new Vue({
 
         subject: [{
                 id: 1,
-                image: "",
+                image: "image/english.png",
                 name: "Foundation English",
                 location: "Dartford",
                 price: 1.50,
@@ -14,7 +14,7 @@ var app = new Vue({
 
             {
                 id: 2,
-                image: "",
+                image: "image/math.png",
                 name: "Foundation Math",
                 location: "bexleyheath",
                 price: 1.50,
@@ -22,7 +22,7 @@ var app = new Vue({
             },
             {
                 id: 3,
-                image: "",
+                image: "image/science.png",
                 name: "Foundation Biology",
                 location: "bexleyheath",
                 price: 1.50,
@@ -30,7 +30,7 @@ var app = new Vue({
             },
             {
                 id: 4,
-                image: "",
+                image: "image/science.png",
                 name: "Foundation Physics",
                 location: "bexleyheath",
                 price: 1.50,
@@ -38,7 +38,7 @@ var app = new Vue({
             },
             {
                 id: 5,
-                image: "",
+                image: "image/science.png",
                 name: "Foundation Chemistry",
                 location: "bexleyheath",
                 price: 1.50,
@@ -46,7 +46,7 @@ var app = new Vue({
             },
             {
                 id: 6,
-                image: "",
+                image: "image/math.png",
                 name: "Higher Maths",
                 location: "Welling",
                 price: 2.00,
@@ -54,7 +54,7 @@ var app = new Vue({
             },
             {
                 id: 7,
-                image: "",
+                image: "image/english.png",
                 name: "Higher English",
                 location: "Dartford",
                 price: 2.00,
@@ -62,7 +62,7 @@ var app = new Vue({
             },
             {
                 id: 8,
-                image: "",
+                image: "image/ep.png",
                 name: "Ethics & Philosophy",
                 location: "Erith",
                 price: 2.00,
@@ -70,7 +70,7 @@ var app = new Vue({
             },
             {
                 id: 9,
-                image: "",
+                image: "image/business.png",
                 name: "Business studdies",
                 location: "Erith",
                 price: 2.00,
@@ -78,13 +78,14 @@ var app = new Vue({
             },
             {
                 id: 10,
-                image: "",
+                image: "image/computer.png",
                 name: "Computer Science",
                 location: "Erith",
                 price: 2.00,
                 space: 5,
             },
         ],
+
         cart: [],
         ShowSubject: true,
         Order: {
