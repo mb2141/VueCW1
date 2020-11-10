@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/5.15.1/css/all.min.css">
 
         <!---------------------- Style CSS ------------------------->
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
+        <link rel="stylesheet" type="text/css" href="../VueCw1/css/style.css">
 
         <title>After School club app</title>
     </head>
@@ -22,7 +22,7 @@
             <div v-if='ShowSubject'>
                 <div v-for='a in subject'>
                     <div id="image">
-                        {{a.image}}
+                        <img v-bind:src="a.image" alt="maths icon" height="100px">
                     </div>
 
                     <div id="name">
