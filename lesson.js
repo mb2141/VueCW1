@@ -15,7 +15,8 @@ var app = new Vue({
 
     methods: {
         addToCart: function (subject) {
-            this.cart.push(subject.id);
+            a = subject.id.length;
+            this.cart.push(subject[a].id);
         },
         ShowBasket() {
             this.ShowSubject = this.ShowSubject ? false : true;
@@ -26,6 +27,7 @@ var app = new Vue({
         },
 
         CanAddToCart(subject) {
+            
             return subject[1].space > this.CartCount(subject.id);
         },
 
@@ -42,4 +44,4 @@ var app = new Vue({
  
     }
 
-})
+});
