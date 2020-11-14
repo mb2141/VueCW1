@@ -44,11 +44,12 @@
                         {{a.space}}
                     </div>
 
-                    <button @click='addToCart' v-if='CanAddToCart'>Add to Cart</button>
+                    <button v-on:click='addToCart(subject)' 
+                    v-if='CanAddToCart(subject)'>Add to Cart</button>
                     <button disabled='disabled' v-else>Add to Cart</button>
-                    <span v-if='a.space === CartItemCount'>Out Of Stock</span>
-                    <span v-else-if='a.space - CartItemCount < 4'>
-                        Only {{a.space - CartItemCount}} left
+                    <span v-if='a.space === CartCount(subject.id)'>Out Of Stock</span>
+                    <span v-else-if='a.space - CartCount(subject.id) < 4'>
+                        Only {{a.space - CartCount(subject.id)}} left
                     </span>
 
                     <br>
@@ -60,7 +61,7 @@
                 </div>
 
                 <!----Basket button----->
-                <button @click='ShowBasket'>{{CartItemCount}} Basket</button>
+                <button @click='ShowBasket'>{{this.cart.length}} Basket</button>
 
             </div>
 
