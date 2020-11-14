@@ -44,12 +44,13 @@
                             </div>
 
                             <button @click='addToCart' v-if='CanAddToCart'>Add to Cart</button>
+                            <span>Only {{a.space - CartItemCount}} left</span>
                             <button disabled='disabled' v-else>Add to Cart</button>
 
-                            <br>
-                            <!---------Space--------->
-                            <br>
-                            <!--------Between-------->
+                            <br> <!---------Space--------->
+
+                            <br> <!--------Between-------->
+
                         </div>
 
                         <!----Basket button----->
