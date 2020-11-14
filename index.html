@@ -19,44 +19,49 @@
 
             <h1 v-text='webname'></h1>
 
-                    <div v-if='ShowSubject'>
+            <div v-if='ShowSubject'>
 
-                        <div v-for='a in subject'>
+                <div v-for='a in subject'>
 
-                            <div id="image">
-                                <img v-bind:src="a.image" alt="maths icon" height="100px">
-                            </div>
-
-                            <div id="name">
-                                {{a.name}}
-                            </div>
-
-                            <div id="location">
-                                {{a.location}}
-                            </div>
-
-                            <div id="price">
-                                £{{a.price}}
-                            </div>
-
-                            <div id="space">
-                                {{a.space}}
-                            </div>
-
-                            <button @click='addToCart' v-if='CanAddToCart'>Add to Cart</button>
-                            <span>Only {{a.space - CartItemCount}} left</span>
-                            <button disabled='disabled' v-else>Add to Cart</button>
-
-                            <br> <!---------Space--------->
-
-                            <br> <!--------Between-------->
-
-                        </div>
-
-                        <!----Basket button----->
-                        <button @click='ShowBasket'>{{CartItemCount}} Basket</button>
-
+                    <div id="image">
+                        <img v-bind:src="a.image" alt="maths icon" height="100px">
                     </div>
+
+                    <div id="name">
+                        {{a.name}}
+                    </div>
+
+                    <div id="location">
+                        {{a.location}}
+                    </div>
+
+                    <div id="price">
+                        £{{a.price}}
+                    </div>
+
+                    <div id="space">
+                        {{a.space}}
+                    </div>
+
+                    <button @click='addToCart' v-if='CanAddToCart'>Add to Cart</button>
+                    <button disabled='disabled' v-else>Add to Cart</button>
+                    <span v-if='a.space === CartItemCount'>Out Of Stock</span>
+                    <span v-else-if='a.space - CartItemCount < 4'>
+                        Only {{a.space - CartItemCount}} left
+                    </span>
+
+                    <br>
+                    <!---------Space--------->
+
+                    <br>
+                    <!--------Between-------->
+
+                </div>
+
+                <!----Basket button----->
+                <button @click='ShowBasket'>{{CartItemCount}} Basket</button>
+
+            </div>
 
 
             <!----The else statement that enables the basket button to change the pages of the web app----->
