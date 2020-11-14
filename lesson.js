@@ -26,14 +26,13 @@ var app = new Vue({
         },
 
         CanAddToCart(subject) {
-
-            return subject[1].space > this.CartCount(subject.id)
+            return subject[1].space > this.CartCount(subject.id);
         },
 
-        CartCount(subject) {
+        CartCount(id) {
             let count = 0;
             for (let i=0; i<this.cart.length; i++){
-                if(this.cart[i] === subject.id) count++;
+                if(this.cart[i] === id) count++;
             }
             return count;
         }
