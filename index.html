@@ -44,7 +44,7 @@
                         {{a.space}}
                     </div>
 
-                    <button v-on:click='addToCart(subject)' 
+                    <button v-on:click='addToCart(a)' 
                     v-if='CanAddToCart(subject)'>Add to Cart</button>
                     <button disabled='disabled' v-else>Add to Cart</button>
                     <span v-if='a.space === CartCount(subject.id)'>Out Of Stock</span>
