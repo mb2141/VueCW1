@@ -20,20 +20,20 @@
 
             <h1 v-text='webname'></h1>
             
-            <div v-for="product in sortedProducts">
+            <div>
             <p>
                 <strong>Filter:</strong>
                 <select>
                 <option disabled value="">Filter</option>
-                <option>Price: High To low</option>
-                <option>Price: Low To High</option>
+                <option >Price: Low To High</option>
+                <option >Price: High To Low</option>
                 </select>
                 </p>
             </div>
 
             <div v-if='ShowSubject'>
 
-                <div v-for='a in subject'>
+                <div v-for='a in sortedSubject'>
 
                     <div id="image">
                         <img v-bind:src="a.image" alt="maths icon" height="100px">

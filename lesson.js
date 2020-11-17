@@ -31,15 +31,26 @@ var app = new Vue({
 
         CartCount(id) {
             let count = 0;
-            for (let i=0; i<this.cart.length; i++){
-                if(this.cart[i] === id) count++;
+            for (let i = 0; i < this.cart.length; i++) {
+                if (this.cart[i] === id) count++;
             }
             return count;
-        }
+        },
+
+
     },
 
     computed: {
- 
+        sortedSubject() {
+            // the comparison function that defines the order
+            function compare(a, b) {
+            if (a.price > b.price) return 1;
+            if (a.price < b.price) return -1;
+            return 0;
+            }
+            // sort the 'products' array and return it
+            return this.subject.sort(compare);
+            }
     }
 
 });

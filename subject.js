@@ -44,7 +44,7 @@ let subject = [{
         image: "../image/math.png",
         name: "Higher Maths",
         location: "Welling",
-        price: 2.00,
+        price: 2.30,
         space: 5,
     },
     {
@@ -52,7 +52,7 @@ let subject = [{
         image: "../image/english.png",
         name: "Higher English",
         location: "Dartford",
-        price: 2.00,
+        price: 2.30,
         space: 5,
     },
     {
@@ -60,7 +60,7 @@ let subject = [{
         image: "../image/ep.png",
         name: "Ethics & Philosophy",
         location: "Erith",
-        price: 2.00,
+        price: 1.00,
         space: 5,
     },
     {
@@ -76,7 +76,7 @@ let subject = [{
         image: "../image/computer.png",
         name: "Computer Science",
         location: "Erith",
-        price: 2.00,
+        price: 2.50,
         space: 5,
     },
 ]
