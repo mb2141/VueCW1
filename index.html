@@ -19,6 +19,17 @@
         <div id="app">
 
             <h1 v-text='webname'></h1>
+            
+            <div v-for="product in sortedProducts">
+            <p>
+                <strong>Filter:</strong>
+                <select>
+                <option disabled value="">Filter</option>
+                <option>Price: High To low</option>
+                <option>Price: Low To High</option>
+                </select>
+                </p>
+            </div>
 
             <div v-if='ShowSubject'>
 
