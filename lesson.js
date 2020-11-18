@@ -37,12 +37,24 @@ var app = new Vue({
             return count;
         },
 
-        RemoveSubject: function(subject){
+        RemoveSubject: function(subject){ // Remove basket function
             this.cart.splice(subject, 1);
         },
 
         reloadPage(){
             window.location.reload()
+          },
+
+          isLetter(e) {
+            let char = String.fromCharCode(e.keyCode); // Get the character
+            if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
+            else e.preventDefault(); // If not match, don't add to input text
+          },
+
+          isNumber(e) {
+            let char = String.fromCharCode(e.keyCode); // Get the character
+            if(/^[0-9]+$/.test(char)) return true; // Match with regex 
+            else e.preventDefault(); // If not match, don't add to input text
           }
     },
 
