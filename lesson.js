@@ -37,20 +37,19 @@ var app = new Vue({
             return count;
         },
 
+        sort() {           
+
+                            
+        },
+
+            
+
 
     },
 
     computed: {
-        sortedSubject() {
-            // the comparison function that defines the order
-            function compare(a, b) {
-            if (a.price > b.price) return 1;
-            if (a.price < b.price) return -1;
-            return 0;
-            }
-            // sort the 'products' array and return it
-            return this.subject.sort(compare);
-            }
+
     }
 
 });
+vm.greet() 

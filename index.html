@@ -19,21 +19,16 @@
         <div id="app">
 
             <h1 v-text='webname'></h1>
-            
-            <div>
+
             <p>
                 <strong>Filter:</strong>
-                <select>
-                <option disabled value="">Filter</option>
-                <option >Price: Low To High</option>
-                <option >Price: High To Low</option>
-                </select>
-                </p>
-            </div>
+                <button @click='sort'>Price: Low To High</button>
+                <button @click="sortHighest">Price: High To Low</button>
+            </p>
 
             <div v-if='ShowSubject'>
 
-                <div v-for='a in sortedSubject'>
+                <div v-for='a in subject'>
 
                     <div id="image">
                         <img v-bind:src="a.image" alt="maths icon" height="100px">
@@ -55,8 +50,7 @@
                         {{a.space}}
                     </div>
 
-                    <button v-on:click='addToCart(a)' 
-                    v-if='CanAddToCart(subject)'>Add to Cart</button>
+                    <button v-on:click='addToCart(a)' v-if='CanAddToCart(subject)'>Add to Cart</button>
                     <button disabled='disabled' v-else>Add to Cart</button>
                     <span v-if='a.space === CartCount(subject.id)'>Out Of Stock</span>
                     <span v-else-if='a.space - CartCount(subject.id) < 4'>
