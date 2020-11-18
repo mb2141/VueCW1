@@ -20,12 +20,6 @@
 
             <h1 v-text='webname'></h1>
 
-            <p>
-                <strong>Filter:</strong>
-                <button @click='sort'>Price: Low To High</button>
-                <button @click="sortHighest">Price: High To Low</button>
-            </p>
-
             <div v-if='ShowSubject'>
 
                 <div v-for='a in subject'>
@@ -50,11 +44,11 @@
                         {{a.space}}
                     </div>
 
-                    <button v-on:click='addToCart(a)' v-if='CanAddToCart(subject)'>Add to Cart</button>
-                    <button disabled='disabled' v-else>Add to Cart</button>
-                    <span v-if='a.space === CartCount(subject.id)'>Out Of Stock</span>
-                    <span v-else-if='a.space - CartCount(subject.id) < 4'>
-                        Only {{a.space - CartCount(subject.id)}} left
+                    <button v-on:click='addToCart(a)' v-if='CanAddToCart(a)'>Add to Cart</button>
+                    <button disabled='disabled' v-else=>Add to Cart</button>
+                    <span v-if='a.space === CartCount(a.id)'>Out Of Stock</span>
+                    <span v-else-if='a.space - CartCount(a.id) < 4'>
+                        Only {{a.space - CartCount(a.id)}} left
                     </span>
 
                     <br>
@@ -66,7 +60,7 @@
                 </div>
 
                 <!----Basket button----->
-                <button @click='ShowBasket'>{{this.cart.length}} Basket</button>
+                <button v-on:click='ShowBasket'>{{this.cart.length}} Basket</button>
 
             </div>
 
@@ -74,6 +68,20 @@
             <!----The else statement that enables the basket button to change the pages of the web app----->
             <div v-else>
                 <h2>Basket</h2>
+
+                <div v-for='a in cart'>
+                    <div v-for='b in subject'>
+
+                        <div id="list" v-if='b.id == a' let id = 'b.id'>
+                            <img v-bind:src="b.image" alt="maths icon" height="100px">
+                            {{b.name}}
+                            {{b.location}}
+                            £{{b.price}}
+                            <button v-on:click="RemoveSubject(a)">X</button>
+                        </div>
+                    </div>
+
+                </div>
 
                 <br>
 

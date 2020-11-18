@@ -26,30 +26,24 @@ var app = new Vue({
         },
 
         CanAddToCart(subject) {
-            return subject[1].space > this.CartCount(subject.id);
+            return subject.space > this.CartCount(subject.id);
         },
 
         CartCount(id) {
             let count = 0;
-            for (let i = 0; i < this.cart.length; i++) {
-                if (this.cart[i] === id) count++;
+            for (let i=0; i<this.cart.length; i++){
+                if(this.cart[i] === id) count++;
             }
             return count;
         },
 
-        sort() {           
-
-                            
-        },
-
-            
-
-
+        RemoveSubject: function(subject){
+            this.cart.splice(subject, 1);
+        }
     },
 
     computed: {
-
+ 
     }
 
 });
-vm.greet() 
