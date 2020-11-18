@@ -39,7 +39,11 @@ var app = new Vue({
 
         RemoveSubject: function(subject){
             this.cart.splice(subject, 1);
-        }
+        },
+
+        reloadPage(){
+            window.location.reload()
+          }
     },
 
     computed: {
