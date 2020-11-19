@@ -22,6 +22,7 @@
 
             <div v-if='ShowSubject'>
 
+
                 <div v-for='a in subject'>
 
                     <div id="image">
@@ -74,12 +75,12 @@
                 <div v-for='a in cart'>
                     <div v-for='b in subject'>
 
-                        <div id="list" v-if='b.id == a' let id = 'b.id'>
+                        <div id="list" v-if='b.id == a'>
                             <img v-bind:src="b.image" alt="maths icon" height="100px">
                             {{b.name}}
                             {{b.location}}
                             £{{b.price}}
-                            <button v-on:click="RemoveSubject(a)">X</button>
+                            <button v-on:click="RemoveSubject(b.id)">X</button>
                         </div>
                     </div>
 

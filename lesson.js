@@ -31,35 +31,41 @@ var app = new Vue({
 
         CartCount(id) {
             let count = 0;
-            for (let i=0; i<this.cart.length; i++){
-                if(this.cart[i] === id) count++;
+            for (let i = 0; i < this.cart.length; i++) {
+                if (this.cart[i] === id) count++;
             }
             return count;
         },
 
-        RemoveSubject: function(subject){ // Remove basket function
-            this.cart.splice(subject, 1);
+        RemoveSubject: function (subject) { // Remove basket function
+            
+            const index = this.cart.indexOf(subject);
+            if (index > -1) {
+                this.cart.splice(index, 1);
+            }
         },
 
-        reloadPage(){
+        reloadPage() {
             window.location.reload()
-          },
+        },
 
-          isLetter(e) {
+        isLetter(e) {
             let char = String.fromCharCode(e.keyCode); // Get the character
-            if(/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
+            if (/^[A-Za-z]+$/.test(char)) return true; // Match with regex 
             else e.preventDefault(); // If not match, don't add to input text
-          },
+        },
 
-          isNumber(e) {
+        isNumber(e) {
             let char = String.fromCharCode(e.keyCode); // Get the character
-            if(/^[0-9]+$/.test(char)) return true; // Match with regex 
+            if (/^[0-9]+$/.test(char)) return true; // Match with regex 
             else e.preventDefault(); // If not match, don't add to input text
-          }
+        },
+
+
     },
 
     computed: {
- 
+
     }
 
 });
