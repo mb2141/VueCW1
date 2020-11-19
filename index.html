@@ -46,7 +46,7 @@
                     </div>
 
                     <button v-on:click='addToCart(a)' v-if='CanAddToCart(a)'>Add to Cart</button>
-                    <button disabled='disabled' v-else=>Add to Cart</button>
+                    <button disabled='disabled' v-else='a.space === CartCount(a.id)' >Add to Cart</button>
                     <span v-if='a.space === CartCount(a.id)'>Out Of Stock</span>
                     <span v-else-if='a.space - CartCount(a.id) < 4'>
                         Only {{a.space - CartCount(a.id)}} left
@@ -62,6 +62,7 @@
 
                 <!----Basket button----->
                 <button v-on:click='ShowBasket'>{{this.cart.length}} Basket</button>
+                
 
             </div>
 
@@ -94,7 +95,7 @@
                     <input type="text" v-model='Order.name' v-on:keypress="isLetter($event)"><br><br>
                     <label>Phone:</label>
                     <input type="text" v-model='Order.phone' v-on:keypress="isNumber($event)"><br><br>
-                    <input type="submit" @click='alert' value="Submit">
+                    <input v-else= 'type="submit" @click='alert' value="Submit"'>
                 </form>
 
             </div>
