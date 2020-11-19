@@ -18,7 +18,6 @@ var app = new Vue({
             this.cart.push(subject.id);
         },
 
-
         ShowBasket() {
             this.ShowSubject = this.ShowSubject ? false : true;
         },
@@ -65,8 +64,6 @@ var app = new Vue({
 
 
     },
-
-
 
     computed: {
 
