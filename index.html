@@ -22,6 +22,7 @@
 
             <div v-if='ShowSubject'>
 
+
                 <div v-for='a in subject'>
 
                     <div id="image">
@@ -94,7 +95,10 @@
                     <input type="text" v-model='Order.name' v-on:keypress="isLetter($event)"><br><br>
                     <label>Phone:</label>
                     <input type="text" v-model='Order.phone' v-on:keypress="isNumber($event)"><br><br>
-                    <input v-else= 'type="submit" @click='alert' value="Submit"'>
+                    
+                    <button disabled='disabled' v-if='Order.name ===""'>Submit Order</button>
+                    <button disabled='disabled' v-else-if='Order.phone ===""'>Submit Order</button>
+                    <button v-else= 'type="submit"' @click='alert'>Submit Order</button>
                 </form>
 
             </div>
