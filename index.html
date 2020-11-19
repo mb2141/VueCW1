@@ -61,7 +61,8 @@
                 </div>
 
                 <!----Basket button----->
-                <button v-on:click='ShowBasket'>{{this.cart.length}} Basket</button>
+                <button disabled='disabled' v-if='cart.length <= 0'>Basket</button>
+                <button v-else= 'type="submit"' v-on:click='ShowBasket'>{{this.cart.length}} Basket</button>
                 
 
             </div>
