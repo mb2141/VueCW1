@@ -2,55 +2,68 @@
     <html>
 
     <head>
+        <!---------------------- Vue library, Javascript and css Links ------------------------->
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script src="https://unpkg.com/vue"></script>
         <script src=subject.js></script>
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/5.15.1/css/all.min.css">
 
         <!---------------------- Style CSS ------------------------->
         <link rel="stylesheet" type="text/css" href="../VueCw1/css/style.css">
 
+        <!---------- Website title -------->
         <title>After School club app</title>
     </head>
 
     <body>
 
         <div id="app">
+            <!------- Div link to lesson.js app variable -------->
 
             <h1 v-text='webname'></h1>
+            <!------- Website name -------->
 
             <div v-if='ShowSubject'>
-
+                <!------ Vue if statement -------->
 
                 <div v-for='a in subject'>
+                    <!------ Vue for loop (Subject Array) -------->
 
+                    <!----------------------- Vue for loop Array ----------------------->
                     <div id="image">
+                        <!------ Vue For loop Array Image -------->
                         <img v-bind:src="a.image" alt="maths icon" height="100px">
                     </div>
 
                     <div id="name">
+                        <!------ Vue For loop Array Name -------->
                         {{a.name}}
                     </div>
 
                     <div id="location">
+                        <!------ Vue For loop Array Location -------->
                         {{a.location}}
                     </div>
 
                     <div id="price">
+                        <!------ Vue For loop Array Price -------->
                         £{{a.price}}
                     </div>
 
                     <div id="space">
+                        <!------ Vue For loop Array Space -------->
                         {{a.space}}
                     </div>
+                    <!-------------------------------------------------------------------->
 
+                    <!----------------- Vue for loop Array (Add To Cart button) ----------------------->
                     <button v-on:click='addToCart(a)' v-if='CanAddToCart(a)'>Add to Cart</button>
-                    <button disabled='disabled' v-else='a.space === CartCount(a.id)' >Add to Cart</button>
+                    <button disabled='disabled' v-else='a.space === CartCount(a.id)'>Add to Cart</button>
                     <span v-if='a.space === CartCount(a.id)'>Out Of Stock</span>
                     <span v-else-if='a.space - CartCount(a.id) < 4'>
                         Only {{a.space - CartCount(a.id)}} left
                     </span>
+                    <!----------------------------------------------------------------------------------->
 
                     <br>
                     <!---------Space--------->
@@ -59,24 +72,29 @@
                     <!--------Between-------->
 
                 </div>
+                <!--------- End of Vue For Loop Div ('a in subject) ----------->
 
-                <!----Basket button----->
+                <!--------------------------------Basket button------------------------------------------->
                 <button disabled='disabled' v-if='cart.length <= 0'>Basket</button>
-                <button v-else= 'type="submit"' v-on:click='ShowBasket'>{{this.cart.length}} Basket</button>
-                
+                <button v-else='type="submit"' v-on:click='ShowBasket'>{{this.cart.length}} Basket</button>
+                <!---------------------------------------------------------------------------------------->
+
 
             </div>
+            <!--------- End of Vue If Statement Div (ShowSubject) ----------->
 
 
             <!----The else statement that enables the basket button to change the pages of the web app----->
             <div v-else>
                 <h2>Basket</h2>
+                <!-------- Title of new page ----------->
 
                 <button v-on:click="reloadPage">Back</button>
+                <!-------- Back button ----------->
 
+                <!-------- Vue For Loop Array (Chosen subject by user) ----------->
                 <div v-for='a in cart'>
                     <div v-for='b in subject'>
-
                         <div id="list" v-if='b.id == a'>
                             <img v-bind:src="b.image" alt="maths icon" height="100px">
                             {{b.name}}
@@ -85,28 +103,37 @@
                             <button v-on:click="RemoveSubject(b.id)">X</button>
                         </div>
                     </div>
-
                 </div>
+                <!------------------------ End of For Loop --------------------------->
 
                 <br>
+                <!-------- Break between Products and customer details ----------->
 
                 <p>Customer Detail</p>
+                <!-------- Subheader----------->
+
+                <!----------------------------------- User form------------------------------------->
                 <form>
                     <label>Name:</label>
                     <input type="text" v-model='Order.name' v-on:keypress="isLetter($event)"><br><br>
                     <label>Phone:</label>
                     <input type="text" v-model='Order.phone' v-on:keypress="isNumber($event)"><br><br>
-                    
+
                     <button disabled='disabled' v-if='Order.name ===""'>Submit Order</button>
                     <button disabled='disabled' v-else-if='Order.phone ===""'>Submit Order</button>
-                    <button v-else= 'type="submit"' @click='alert'>Submit Order</button>
+                    <button v-else='type="submit"' @click='alert'>Submit Order</button>
                 </form>
+                <!----------------------------- End of User form ----------------------------------->
 
             </div>
+            <!-------- End of v-else page ----------->
 
         </div>
+        <!-------- End of Div app id ----------->
 
+        <!-------- Lesson Javascript file  ----------->
         <script src="lesson.js"></script>
+
     </body>
 
     </html>
