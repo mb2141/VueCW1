@@ -12,14 +12,16 @@ var app = new Vue({
             phone: '',
         }, // User info array
 
+        //Sort by array
         sortedBy: [
             "name",
             "location",
             "price",
             "space"
         ],
-        sortedByOption: "name",
-        orderBy: "acsending",
+
+        sortedByOption: "name", 
+        orderBy: "ascending", // Automactic ascension 
     },
 
     methods: {
@@ -71,7 +73,7 @@ var app = new Vue({
             else e.preventDefault(); // If not match, don't add to input number
         },
 
-        sortBy: function (array, param, order) {
+        sortBy: function (array, param, order) { // Sort by function
             let filterA, filterB;
             return array.sort(function (a, b) {
                 switch (param) {
@@ -92,7 +94,7 @@ var app = new Vue({
                         filterB = b.space;
                         break;
                 }
-                if (order == "acsending") {
+                if (order == "ascending") { // if statement
                     return (filterA > filterB) ? 1 : -1;
                 } else {
                     return (filterA < filterB) ? 1 : -1;
@@ -105,16 +107,16 @@ var app = new Vue({
 
     },
 
-    watch: {
+    watch: {// listen to the component data and run whenever a particular property changes
         sortedByOption: function () {
             this.sortBy(this.subject, this.sortedByOption, this.orderBy);
-        },
+        },// Reacts to the changes with the sortby function and sends chnages to the other functions
 
         orderBy: function () {
             this.sortBy(this.subject, this.sortedByOption, this.orderBy);
-        },
+        }, // Reacts to the changes with the sortby function and sends chnages to the other functions
 
-        created: function () {
+        created: function () { // Starts the computed in the code byt eh response of the other functions
             axios.get('./subject.json')
                 .then((response) => {
                     this.subject = response.data.subject;
