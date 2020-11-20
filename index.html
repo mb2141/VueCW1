@@ -26,6 +26,18 @@
             <div v-if='ShowSubject'>
                 <!------ Vue if statement -------->
 
+
+    <strong>Sort by:</strong>
+    <select v-model="sortedByOption" class="form-control">
+        <option v-for="sortBy in sortedBy">
+            {{sortBy}}
+        </option>
+    </select>
+    <select v-model="orderBy" class="form-control">
+        <option value="acsending">Acsending</option>
+        <option value="descending">Descending</option>
+    </select>
+
                 <div v-for='a in subject'>
                     <!------ Vue for loop (Subject Array) -------->
 

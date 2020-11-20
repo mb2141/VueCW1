@@ -10,7 +10,16 @@ var app = new Vue({
         Order: {
             name: '',
             phone: '',
-        } // User info array
+        }, // User info array
+
+        sortedBy: [
+            "name",
+            "location",
+            "price",
+            "space"
+        ],
+        sortedByOption: "name",
+        orderBy: "acsending",
     },
 
     methods: {
@@ -62,10 +71,56 @@ var app = new Vue({
             else e.preventDefault(); // If not match, don't add to input number
         },
 
-
+        sortBy: function (array, param, order) {
+            let filterA, filterB;
+            return array.sort(function (a, b) {
+                switch (param) {
+                    case 'name':
+                        filterA = a.name;
+                        filterB = b.name;
+                        break;
+                    case 'location':
+                        filterA = a.location;
+                        filterB = b.location;
+                        break;
+                    case 'price':
+                        filterA = a.price;
+                        filterB = b.price;
+                        break;
+                    case 'space':
+                        filterA = a.space;
+                        filterB = b.space;
+                        break;
+                }
+                if (order == "acsending") {
+                    return (filterA > filterB) ? 1 : -1;
+                } else {
+                    return (filterA < filterB) ? 1 : -1;
+                }
+            });
+        },
     },
 
     computed: {
+
+    },
+
+    watch: {
+        sortedByOption: function () {
+            this.sortBy(this.subject, this.sortedByOption, this.orderBy);
+        },
+
+        orderBy: function () {
+            this.sortBy(this.subject, this.sortedByOption, this.orderBy);
+        },
+
+        created: function () {
+            axios.get('./subject.json')
+                .then((response) => {
+                    this.subject = response.data.subject;
+                    this.sortBy(this.subject, this.sortedByOption, this.orderBy);
+                });
+        }
 
 },
 
