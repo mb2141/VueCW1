@@ -17,7 +17,6 @@ var app = new Vue({
             "name",
             "location",
             "price",
-            "space"
         ],
 
         sortedByOption: "name", 
@@ -88,10 +87,6 @@ var app = new Vue({
                     case 'price':
                         filterA = a.price;
                         filterB = b.price;
-                        break;
-                    case 'space':
-                        filterA = a.space;
-                        filterB = b.space;
                         break;
                 }
                 if (order == "ascending") { // if statement
