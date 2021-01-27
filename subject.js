@@ -9,7 +9,7 @@ let subject = [{
 
     {
         id: 2,
-        image: "../image/math.png",
+        image: "image/math.png",
         name: "Foundation Math",
         location: "bexleyheath",
         price: 1.50,

@@ -111,14 +111,14 @@ var app = new Vue({
             this.sortBy(this.subject, this.sortedByOption, this.orderBy);
         }, // Reacts to the changes with the sortby function and sends chnages to the other functions
 
-        created: function () { // Starts the computed in the code byt eh response of the other functions
-            axios.get('./subject.json')
-                .then((response) => {
-                    this.subject = response.data.subject;
-                    this.sortBy(this.subject, this.sortedByOption, this.orderBy);
-                });
-        }
-
 },
+
+created: function () { // Starts the computed in the code byt eh response of the other functions
+    axios.get('./subject.json')
+        .then((response) => {
+            this.subject = response.data.subject;
+            this.sortBy(this.subject, this.sortedByOption, this.orderBy);
+        });
+}
 
 });
