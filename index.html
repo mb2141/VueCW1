@@ -40,7 +40,7 @@
                  <!---------------- End of Sort By Code ------------------->
 
 
-                <div v-for='a in subject'>
+                <div v-for='a in Subjects'>
                     <!------ Vue for loop (Subject Array) -------->
 
                     <!----------------------- Vue for loop Array ----------------------->
@@ -108,7 +108,7 @@
 
                 <!-------- Vue For Loop Array (Chosen subject by user) ----------->
                 <div v-for='a in cart'>
-                    <div v-for='b in subject'>
+                    <div v-for='b in Subjects'>
                         <div id="list" v-if='b.id == a'>
                             <img v-bind:src="b.image" alt="maths icon" height="100px">
                             {{b.name}}
